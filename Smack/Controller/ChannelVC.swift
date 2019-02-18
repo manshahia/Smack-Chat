@@ -10,8 +10,9 @@ import UIKit
 
 class ChannelVC: UIViewController {
 
+    @IBAction func unwindToChannelVC(segue : UIStoryboardSegue) {}
     @IBAction func loginPressed(_ sender: Any) {
-        performSegue(withIdentifier: toLoginVC, sender:self)
+        performSegue(withIdentifier: TO_LOGIN_VC, sender:self)
     }
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -9,4 +9,6 @@
 import Foundation
 
 //Segues
-var toLoginVC = "toLoginVC"
+var TO_LOGIN_VC = "toLoginVC"
+var TO_NEW_ACCOUNT_VC = "toNewAccount"
+var UNWIND_TO_CHANNELVC = "unwindToChannelVC"
