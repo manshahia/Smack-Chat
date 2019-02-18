@@ -10,6 +10,9 @@ import UIKit
 
 class ChannelVC: UIViewController {
 
+    @IBAction func loginPressed(_ sender: Any) {
+        performSegue(withIdentifier: toLoginVC, sender:self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
