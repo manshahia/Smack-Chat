@@ -10,9 +10,46 @@ import UIKit
 
 class CreateAccountVC: UIViewController {
 
+    //OUtlets
+    @IBOutlet weak var userNameTF: UITextField!
+    @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
+    @IBOutlet weak var userIMG: UIImageView!
+    
+    //Actions
     @IBAction func closeBtnPressed(_ sender: Any) {
         performSegue(withIdentifier: UNWIND_TO_CHANNELVC, sender: nil)
     }
+    @IBAction func chooseAvatar(_ sender: UIButton) {
+    }
+    @IBAction func changeBGColor(_ sender: UIButton) {
+    }
+    @IBAction func createAccountBtnPressed(_ sender: Any) {
+        if let email = emailTF.text,
+               emailTF.text != "",
+           let password = passwordTF.text,
+               passwordTF.text != ""
+        {
+//            print("Email \(email) & Password \(password)")
+            AuthService.instance.registerUser(email: email, password: password) { (success) in
+                if success
+                {
+                    print("Successfully created account")
+                }
+                else
+                {
+                    print("Account could not be created")
+                }
+            }
+        }
+        else
+        {
+            return
+        }
+        
+    }
+    
+    //View Delegates
     override func viewDidLoad() {
         super.viewDidLoad()
 
