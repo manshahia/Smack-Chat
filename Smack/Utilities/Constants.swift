@@ -14,6 +14,7 @@ typealias CompletionHandler = (_ success: Bool) -> ()
 //URL Constants
 let BASE_URL = "https://appychatchatrav.herokuapp.com/v1/"
 let URL_REGISTER = "\(BASE_URL)account/register"
+let URL_LOGIN = "\(BASE_URL)account/login"
 
 //UserDefaults
 let TOKEN_KEY = "token"
@@ -24,3 +25,8 @@ let USER_EMAIL = "userEmail"
 let TO_LOGIN_VC = "toLoginVC"
 let TO_NEW_ACCOUNT_VC = "toNewAccount"
 let UNWIND_TO_CHANNELVC = "unwindToChannelVC"
+
+
+//Headers
+let HEADER = ["Content-Type":"application/JSON; charset=utf-8"]
+
