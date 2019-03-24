@@ -125,6 +125,7 @@
                     </view>
                     <connections>
                         <outlet property="loginBtn" destination="L3R-pA-T7i" id="FMR-do-f6y"/>
+                        <outlet property="userImage" destination="Rdx-pz-lQF" id="c4g-Li-wx8"/>
                         <segue destination="9Yo-Cz-dtQ" kind="show" identifier="toLogin" id="2ss-XI-6IC"/>
                     </connections>
                 </viewController>
@@ -340,7 +341,7 @@
                                     <action selector="createAccountBtnPressed:" destination="WOX-Zz-my6" eventType="touchUpInside" id="Csm-8D-fn4"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="4ca-NS-yvz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="4ca-NS-yvz" customClass="AvatarRoundedImgView" customModule="Slack2" customModuleProvider="target">
                                 <rect key="frame" x="137.5" y="368" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="IQu-HS-9JG"/>
@@ -361,12 +362,19 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="inv-Kt-Uvx">
                                 <rect key="frame" x="99" y="514" width="177" height="30"/>
                                 <state key="normal" title="Change background color"/>
+                                <connections>
+                                    <action selector="changeBackColor:" destination="WOX-Zz-my6" eventType="touchUpInside" id="hv3-DW-qIm"/>
+                                </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ied-Sx-K9o">
+                                <rect key="frame" x="169" y="215" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="inv-Kt-Uvx" firstAttribute="centerX" secondItem="WDc-HQ-wWg" secondAttribute="centerX" id="39i-NC-BPR"/>
                             <constraint firstItem="mSw-7N-4eM" firstAttribute="bottom" secondItem="5sC-hD-Lgt" secondAttribute="bottom" constant="20" id="Amg-za-GW9"/>
+                            <constraint firstItem="ied-Sx-K9o" firstAttribute="centerY" secondItem="WDc-HQ-wWg" secondAttribute="centerY" constant="-100" id="GxU-JX-VfL"/>
                             <constraint firstItem="t1t-vl-akt" firstAttribute="centerX" secondItem="WDc-HQ-wWg" secondAttribute="centerX" id="I8X-DC-UcK"/>
                             <constraint firstItem="mSw-7N-4eM" firstAttribute="trailing" secondItem="ucu-b1-ldl" secondAttribute="trailing" constant="16" id="Lqc-MR-rzv"/>
                             <constraint firstItem="ucu-b1-ldl" firstAttribute="top" secondItem="mSw-7N-4eM" secondAttribute="top" id="NCH-Rz-Svc"/>
@@ -378,6 +386,7 @@
                             <constraint firstItem="4ca-NS-yvz" firstAttribute="centerX" secondItem="WDc-HQ-wWg" secondAttribute="centerX" id="c7B-tc-QUJ"/>
                             <constraint firstItem="knm-ZG-Iid" firstAttribute="top" secondItem="mSw-7N-4eM" secondAttribute="top" constant="54" id="d1i-Ya-JmF"/>
                             <constraint firstItem="4ca-NS-yvz" firstAttribute="top" secondItem="t1t-vl-akt" secondAttribute="bottom" constant="35" id="dwT-Qd-E09"/>
+                            <constraint firstItem="ied-Sx-K9o" firstAttribute="centerX" secondItem="WDc-HQ-wWg" secondAttribute="centerX" id="e8E-7o-N9e"/>
                             <constraint firstItem="IEx-xN-dMq" firstAttribute="centerX" secondItem="WDc-HQ-wWg" secondAttribute="centerX" id="gg8-L4-Ni3"/>
                             <constraint firstItem="IEx-xN-dMq" firstAttribute="top" secondItem="t1t-vl-akt" secondAttribute="bottom" constant="35" id="poW-wc-h9x"/>
                         </constraints>
@@ -386,6 +395,7 @@
                     <connections>
                         <outlet property="emailTF" destination="pNF-pc-s07" id="PAh-Y0-vy3"/>
                         <outlet property="passwordTF" destination="WfP-2s-oT6" id="maC-Wu-QuV"/>
+                        <outlet property="spinner" destination="ied-Sx-K9o" id="tZJ-vf-6qg"/>
                         <outlet property="userImage" destination="4ca-NS-yvz" id="ddB-QV-4OX"/>
                         <outlet property="usernameTF" destination="4qv-jM-uC5" id="6hX-99-PrW"/>
                     </connections>

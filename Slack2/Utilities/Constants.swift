@@ -28,3 +28,9 @@ let TOKEN_KEY = "token"
 let LOGGED_IN_KEY = "loggedIn"
 let USER_EMAIL = "email"
 
+//Colors
+let purplePlaceholder = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 0.4650577911)
+
+//Notifications
+
+let DID_CHANGE_USER_DATA = NSNotification.Name(rawValue: "didChangeUserData")

@@ -12,6 +12,7 @@ class ChannelVC: UIViewController {
 
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {}
     @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var userImage: UIImageView!
     @IBAction func loginBtnPressed(_ sender: Any) {
         performSegue(withIdentifier: TO_LOGIN_SEGUE, sender: nil)
     }
@@ -21,6 +22,21 @@ class ChannelVC: UIViewController {
 
         self.revealViewController()?.rearViewRevealWidth = self.view.frame.size.width - 60
         // Do any additional setup after loading the view.
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.didChangeNotification), name: DID_CHANGE_USER_DATA, object: nil)
+    }
+    
+    @objc func didChangeNotification()
+    {
+        if AuthService.instance.isLoggedIn {
+            loginBtn.setTitle(UserDataService.instance.name, for: .normal)
+            userImage.image = UIImage(named: UserDataService.instance.avatarName)
+        }
+        else
+        {
+            loginBtn.setTitle("Login", for: .normal)
+            userImage.image = UIImage(named: "menuProfileIcon")
+        }
     }
     
 

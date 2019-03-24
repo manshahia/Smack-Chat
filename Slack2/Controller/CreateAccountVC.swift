@@ -15,10 +15,14 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     var avatarName = "userDefault"
     
     
     @IBAction func createAccountBtnPressed(_ sender: Any) {
+        
+        spinner.isHidden = false
+        spinner.startAnimating()
         
         guard let name = usernameTF.text, name != "" else {return}
         guard let email = emailTF.text, email != "" else {return}
@@ -30,11 +34,14 @@ class CreateAccountVC: UIViewController {
                 print("Registered user")
                 AuthService.instance.loginUser(email: email, password: password, completion: { (success) in
                     if success {
-                        AuthService.instance.addUser(avatarName: "ava", avatarColor: "avaColor", email: email, name: name, completion: { (success) in
+                        AuthService.instance.addUser(avatarName: UserDataService.instance.avatarName, avatarColor: "avaColor", email: email, name: name, completion: { (success) in
                             if success {
                                 print("User Created")
                                 print(UserDataService.instance.avatarName)
+                                self.spinner.isHidden = true
+                                self.spinner.stopAnimating()
                                 self.performSegue(withIdentifier: UNWIND_TO_CHANNEL_VC, sender: nil)
+                                NotificationCenter.default.post(name: DID_CHANGE_USER_DATA, object: nil)
 
                             }
                         })
@@ -53,9 +60,44 @@ class CreateAccountVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupView()
     }
     
+    func setupView()
+    {
+        
+        spinner.isHidden = true
+        
+        emailTF.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor : purplePlaceholder])
+        usernameTF.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedString.Key.foregroundColor : purplePlaceholder])
+        passwordTF.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor : purplePlaceholder])
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateAccountVC.tappedGesture))
+        
+        self.view.addGestureRecognizer(tapGesture)
+        
+        
+    }
+    
+    @objc func tappedGesture()
+    {
+        self.view.endEditing(true)
+    }
+    
+    @IBAction func changeBackColor(_ sender: Any) {
+        
+        let r = CGFloat(arc4random_uniform(255))/255
+        let g = CGFloat(arc4random_uniform(255))/255
+        let b = CGFloat(arc4random_uniform(255))/255
+        
+        let randomColor = UIColor(red: r, green: g, blue: b, alpha: 1.0)
+        
+        UIView.animate(withDuration: 2.0) {
+            self.userImage.backgroundColor = randomColor
+
+        }
+        
+    }
     override func viewDidAppear(_ animated: Bool) {
         
         if UserDataService.instance.avatarName != "" {
