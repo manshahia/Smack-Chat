@@ -11,10 +11,25 @@ import UIKit
 class ChannelVC: UIViewController {
 
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {}
+    
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var userImage: UIImageView!
-    @IBAction func loginBtnPressed(_ sender: Any) {
-        performSegue(withIdentifier: TO_LOGIN_SEGUE, sender: nil)
+    
+    
+    
+    @IBAction func loginBtnPressed(_ sender: Any)
+    {
+        if AuthService.instance.isLoggedIn
+        {
+            let profileVC = ProfileVC()
+            profileVC.modalPresentationStyle = .custom
+            present(profileVC, animated: true, completion: nil)
+        }
+        else
+        {
+                performSegue(withIdentifier: TO_LOGIN_SEGUE, sender: nil)
+        }
+        
     }
     
     override func viewDidLoad() {
