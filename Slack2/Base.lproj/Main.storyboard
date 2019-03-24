@@ -221,23 +221,36 @@
                                     <constraint firstAttribute="width" constant="220" id="NAC-M3-Z2j"/>
                                 </constraints>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginBtnPressed:" destination="9Yo-Cz-dtQ" eventType="touchUpInside" id="vFN-gq-Qsh"/>
+                                </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6rH-jT-ECn">
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Wt5-k2-3iW" firstAttribute="centerX" secondItem="0c7-yA-eq9" secondAttribute="centerX" id="21Y-7W-yWi"/>
                             <constraint firstItem="Mnk-q5-SWs" firstAttribute="centerX" secondItem="0c7-yA-eq9" secondAttribute="centerX" id="8Lh-2Y-QLG"/>
                             <constraint firstItem="95F-uo-64b" firstAttribute="trailing" secondItem="FRZ-CD-2YA" secondAttribute="trailing" constant="16" id="E6w-tk-VA3"/>
+                            <constraint firstItem="6rH-jT-ECn" firstAttribute="centerY" secondItem="0c7-yA-eq9" secondAttribute="centerY" id="EBe-ql-umd"/>
                             <constraint firstItem="Mnk-q5-SWs" firstAttribute="top" secondItem="95F-uo-64b" secondAttribute="top" constant="68" id="T7o-BO-WkC"/>
                             <constraint firstItem="Wt5-k2-3iW" firstAttribute="top" secondItem="Mnk-q5-SWs" secondAttribute="bottom" constant="56" id="TXT-rh-XwY"/>
                             <constraint firstItem="75I-wm-WaB" firstAttribute="centerX" secondItem="0c7-yA-eq9" secondAttribute="centerX" id="WRn-mj-rF4"/>
                             <constraint firstItem="FRZ-CD-2YA" firstAttribute="top" secondItem="95F-uo-64b" secondAttribute="top" id="e6v-2R-2FF"/>
                             <constraint firstItem="IeC-BE-Bee" firstAttribute="top" secondItem="75I-wm-WaB" secondAttribute="bottom" constant="20" id="ilC-4L-LUf"/>
+                            <constraint firstItem="6rH-jT-ECn" firstAttribute="centerX" secondItem="0c7-yA-eq9" secondAttribute="centerX" id="uD3-JG-jgg"/>
                             <constraint firstItem="IeC-BE-Bee" firstAttribute="centerX" secondItem="0c7-yA-eq9" secondAttribute="centerX" id="ugi-9d-67I"/>
                             <constraint firstItem="75I-wm-WaB" firstAttribute="top" secondItem="Wt5-k2-3iW" secondAttribute="bottom" constant="50" id="zC4-SR-9BP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="95F-uo-64b"/>
                     </view>
+                    <connections>
+                        <outlet property="passwordTF" destination="wUH-ho-RNi" id="lFq-KE-ufr"/>
+                        <outlet property="spinner" destination="6rH-jT-ECn" id="Jxj-eZ-fvR"/>
+                        <outlet property="usernameTF" destination="6XM-bI-sZX" id="TcP-f3-KmX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MvU-nt-Fke" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -255,7 +268,6 @@
                                 <rect key="frame" x="331" y="20" width="28" height="28"/>
                                 <state key="normal" image="closeButton"/>
                                 <connections>
-                                    <action selector="closeBtnPressed:" destination="9Yo-Cz-dtQ" eventType="touchUpInside" id="4Wc-Pv-bmb"/>
                                     <action selector="closeBtnPressed:" destination="WOX-Zz-my6" eventType="touchUpInside" id="Fat-FN-JnM"/>
                                     <segue destination="6KV-gx-07Z" kind="unwind" identifier="unwindToChannelVC" unwindAction="prepareForUnwindWithSegue:" id="ofP-R0-CY5"/>
                                 </connections>

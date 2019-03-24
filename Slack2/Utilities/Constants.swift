@@ -16,6 +16,7 @@ let BASE_URL = "https://appychatchatrav.herokuapp.com/v1/"
 let URL_REGISTER = "\(BASE_URL)account/register"
 let URL_LOGIN = "\(BASE_URL)account/login"
 let URL_ADD_USER = "\(BASE_URL)user/add"
+let URL_USER_BY_EMAIL = "\(BASE_URL)user/byEmail/"
 
 //segues
 let TO_LOGIN_SEGUE = "toLogin"
@@ -34,3 +35,12 @@ let purplePlaceholder = #colorLiteral(red: 0.3647058904, green: 0.06666667014, b
 //Notifications
 
 let DID_CHANGE_USER_DATA = NSNotification.Name(rawValue: "didChangeUserData")
+
+
+let HEADER =  [
+    "content-type" : "Application/JSON; charset = utf-8"
+]
+let HEADER_AUTH = [
+    "Authorization" : "Bearer \(AuthService.instance.authToken)",
+    "content-type" : "Application/JSON; charset = utf-8"
+]

@@ -40,8 +40,15 @@ class ChannelVC: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.didChangeNotification), name: DID_CHANGE_USER_DATA, object: nil)
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        setupUserInfo()
+    }
     @objc func didChangeNotification()
+    {
+      setupUserInfo()
+    }
+    
+    func setupUserInfo()
     {
         if AuthService.instance.isLoggedIn {
             loginBtn.setTitle(UserDataService.instance.name, for: .normal)
@@ -53,7 +60,6 @@ class ChannelVC: UIViewController {
             userImage.image = UIImage(named: "menuProfileIcon")
         }
     }
-    
 
     /*
     // MARK: - Navigation
