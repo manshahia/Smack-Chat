@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		327C9B37221C50F500E5A54A /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327C9B36221C50F500E5A54A /* UserDataService.swift */; };
 		327DFFDE22152BEF00F20733 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327DFFDD22152BEF00F20733 /* AppDelegate.swift */; };
 		327DFFE322152BEF00F20733 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 327DFFE122152BEF00F20733 /* Main.storyboard */; };
 		327DFFE522152BEF00F20733 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 327DFFE422152BEF00F20733 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		327C9B36221C50F500E5A54A /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		327DFFDA22152BEF00F20733 /* Smack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		327DFFDD22152BEF00F20733 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		327DFFE222152BEF00F20733 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				32835F42221BC5D400B34AC5 /* AuthService.swift */,
+				327C9B36221C50F500E5A54A /* UserDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				32E3A41A2215D08D005FAC5E /* ChatVC.swift in Sources */,
 				32835F45221BD3B800B34AC5 /* RoundedButton.swift in Sources */,
 				327DFFDE22152BEF00F20733 /* AppDelegate.swift in Sources */,
+				327C9B37221C50F500E5A54A /* UserDataService.swift in Sources */,
 				327E51D6221A969500BFD1F7 /* CreateAccountVC.swift in Sources */,
 				327E51D4221A8AA600BFD1F7 /* LoginVC.swift in Sources */,
 				327E51CF221A761200BFD1F7 /* GradientView.swift in Sources */,

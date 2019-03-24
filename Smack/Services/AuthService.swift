@@ -80,19 +80,25 @@ class AuthService
                 let json = try! JSON(data: data)
                 self.userEmail = json["user"].stringValue
                 self.token = json["token"].stringValue
-                
-                
-                
-                    self.isLoggedIn = true
-                   completion(true)
-                
             
+                self.isLoggedIn = true
+                completion(true)
             }
             else {
                 debugPrint(response.result.error as Any)
                 completion(false)
-                
             }
         }
+    }
+    
+    func createUser( name: String, avatarName: String, avatarColor: String, email: String, completion: @escaping CompletionHandler)
+    {
+        let emailLowerCased = email.lowercased()
+        let body : [String,Any] = [
+            "name" : name,
+            "email" : emailLowerCased,
+            "avatarName" : avatarName,
+            "avatarColor" : avatarColor]
+
     }
 }
