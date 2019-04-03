@@ -36,6 +36,9 @@ let purplePlaceholder = #colorLiteral(red: 0.3647058904, green: 0.06666667014, b
 //Notifications
 
 let DID_CHANGE_USER_DATA = NSNotification.Name(rawValue: "didChangeUserData")
+let NOTIF_CHANNELS_LOADED = NSNotification.Name(rawValue: "channelsLoaded")
+let NOTIF_CHANNEL_SELECTED = NSNotification.Name(rawValue: "channelSelected")
+
 
 
 let HEADER =  [

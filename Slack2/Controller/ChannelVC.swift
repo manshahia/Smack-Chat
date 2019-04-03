@@ -14,9 +14,12 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBAction func addChannelBtnPressed(_ sender: Any)
     {
-        let addChannelVC = AddChannelVC()
-        addChannelVC.modalPresentationStyle = .custom
-        present(addChannelVC, animated: true, completion: nil)
+        if AuthService.instance.isLoggedIn
+        {
+            let addChannelVC = AddChannelVC()
+            addChannelVC.modalPresentationStyle = .custom
+            present(addChannelVC, animated: true, completion: nil)
+        }
     }
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {}
     
@@ -49,6 +52,9 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.didChangeNotification), name: DID_CHANGE_USER_DATA, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.channelsLoaded(_:)), name: NOTIF_CHANNELS_LOADED, object: nil)
+        
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -57,6 +63,7 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 self.tableView.reloadData()
             }
         }
+        
         
    
         
@@ -79,6 +86,7 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         {
             loginBtn.setTitle("Login", for: .normal)
             userImage.image = UIImage(named: "menuProfileIcon")
+            tableView.reloadData()
         }
     }
     
@@ -98,7 +106,20 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let channel = MessageService.instance.channels[indexPath.row]
+        MessageService.instance.selectedChannel = channel
+        NotificationCenter.default.post(name: NOTIF_CHANNEL_SELECTED, object: nil)
+        
+        self.revealViewController()?.revealToggle(animated: true)
+        
+    }
 
+    @objc func channelsLoaded(_ notif: Notification)
+    {
+        tableView.reloadData()
+    }
     /*
     // MARK: - Navigation
 
