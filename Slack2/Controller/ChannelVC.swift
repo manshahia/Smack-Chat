@@ -8,13 +8,16 @@
 
 import UIKit
 
-class ChannelVC: UIViewController {
+class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+  
+    
 
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {}
     
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var userImage: UIImageView!
     
+    @IBOutlet weak var tableView: UITableView!
     
     
     @IBAction func loginBtnPressed(_ sender: Any)
@@ -40,6 +43,9 @@ class ChannelVC: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.didChangeNotification), name: DID_CHANGE_USER_DATA, object: nil)
         
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         MessageService.instance.getChannels { (success) in
             
         }
@@ -63,6 +69,23 @@ class ChannelVC: UIViewController {
         {
             loginBtn.setTitle("Login", for: .normal)
             userImage.image = UIImage(named: "menuProfileIcon")
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return MessageService.instance.channels.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "channelCell", for: indexPath) as? ChannelCell
+        {
+            cell.configureCell(channel: MessageService.instance.channels[indexPath.row])
+            return cell
+        }
+        else
+        {
+            return UITableViewCell()
         }
     }
 

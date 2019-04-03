@@ -67,7 +67,7 @@
                                 <rect key="frame" x="0.0" y="115.5" width="375" height="427.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="hKY-BT-38F">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="channelCell" id="hKY-BT-38F" customClass="ChannelCell" customModule="Slack2" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hKY-BT-38F" id="2Oq-SO-J6L">
@@ -86,6 +86,9 @@
                                                 <constraint firstItem="hHc-dB-dNO" firstAttribute="leading" secondItem="2Oq-SO-J6L" secondAttribute="leading" constant="15" id="MMb-4w-NAu"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="channelLabel" destination="hHc-dB-dNO" id="BoW-yJ-62E"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -125,6 +128,7 @@
                     </view>
                     <connections>
                         <outlet property="loginBtn" destination="L3R-pA-T7i" id="FMR-do-f6y"/>
+                        <outlet property="tableView" destination="pJl-Iv-Cv8" id="gKx-dT-teg"/>
                         <outlet property="userImage" destination="Rdx-pz-lQF" id="c4g-Li-wx8"/>
                         <segue destination="9Yo-Cz-dtQ" kind="show" identifier="toLogin" id="2ss-XI-6IC"/>
                     </connections>
