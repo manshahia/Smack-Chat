@@ -39,6 +39,11 @@ class ChannelVC: UIViewController {
         // Do any additional setup after loading the view.
         
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.didChangeNotification), name: DID_CHANGE_USER_DATA, object: nil)
+        
+        MessageService.instance.getChannels { (success) in
+            
+        }
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         setupUserInfo()
