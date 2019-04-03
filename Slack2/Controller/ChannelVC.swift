@@ -12,6 +12,12 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
     
 
+    @IBAction func addChannelBtnPressed(_ sender: Any)
+    {
+        let addChannelVC = AddChannelVC()
+        addChannelVC.modalPresentationStyle = .custom
+        present(addChannelVC, animated: true, completion: nil)
+    }
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {}
     
     @IBOutlet weak var loginBtn: UIButton!
@@ -46,9 +52,7 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         
-        MessageService.instance.getChannels { (success) in
-            
-        }
+   
         
     }
     override func viewDidAppear(_ animated: Bool) {
