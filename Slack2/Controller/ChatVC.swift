@@ -10,14 +10,30 @@ import UIKit
 
 class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var menuBtn: UIButton!
-    
+    var isTyping = false
+    @IBAction func textFieldEditingChanged(_ sender: Any) {
+        
+        if messageTF.text == "" {
+            isTyping = false
+            sendBtn.isHidden = true
+        }
+        else
+        {
+            if isTyping == false
+            {
+                sendBtn.isHidden = false
+            }
+            isTyping = true
+        }
+    }
+    @IBOutlet weak var sendBtn: UIButton!
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var messageTF: UITextField!
     @IBOutlet weak var channelNameLabel: UILabel!
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+        sendBtn.isHidden = true
         view.bindToKeyboard()
         tableview.delegate = self
         tableview.dataSource = self
@@ -41,6 +57,16 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             AuthService.instance.findUserByEmail { (success) in
                 NotificationCenter.default.post(name: DID_CHANGE_USER_DATA, object: nil)
                 
+            }
+        }
+        
+        SocketService.instance.getChatMessage { (success) in
+            if success {
+                self.tableview.reloadData()
+                if MessageService.instance.messages.count > 0 {
+                    let endIndex = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
+                    self.tableview.scrollToRow(at: endIndex, at: UITableView.ScrollPosition.bottom, animated: true)
+                }
             }
         }
         
@@ -68,6 +94,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         else
         {
             channelNameLabel.text = "Please Login"
+            tableview.reloadData()
         }
     }
     

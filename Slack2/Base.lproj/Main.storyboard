@@ -550,6 +550,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldEditingChanged:" destination="0B8-mB-b0g" eventType="editingChanged" id="HvI-lM-dam"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Glk-Cp-sya">
                                 <rect key="frame" x="337" y="632" width="30" height="30"/>
@@ -639,6 +642,7 @@
                         <outlet property="channelNameLabel" destination="GmB-8v-7Ab" id="CdG-Cn-b2K"/>
                         <outlet property="menuBtn" destination="Wum-4p-m0I" id="0eO-g5-udz"/>
                         <outlet property="messageTF" destination="FUI-dC-WdF" id="m4F-RY-e0P"/>
+                        <outlet property="sendBtn" destination="Glk-Cp-sya" id="evI-pe-G9s"/>
                         <outlet property="tableview" destination="Cdu-o7-St9" id="PBo-st-WX2"/>
                     </connections>
                 </viewController>
