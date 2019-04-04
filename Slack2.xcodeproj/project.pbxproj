@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		326EB05D2255C31F00F78C77 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326EB05C2255C31F00F78C77 /* MessageCell.swift */; };
 		3275A56722475985004623E9 /* AvatarRoundedImgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3275A56622475985004623E9 /* AvatarRoundedImgView.swift */; };
 		3275A56C224786E5004623E9 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3275A56A224786E5004623E9 /* ProfileVC.swift */; };
 		3275A56D224786E5004623E9 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3275A56B224786E5004623E9 /* ProfileVC.xib */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		037BA322B661D423A0F0F984 /* Pods_Slack2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Slack2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		13D340D108A509BF3FE6B560 /* Pods-Slack2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slack2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Slack2/Pods-Slack2.debug.xcconfig"; sourceTree = "<group>"; };
+		326EB05C2255C31F00F78C77 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		3275A56622475985004623E9 /* AvatarRoundedImgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarRoundedImgView.swift; sourceTree = "<group>"; };
 		3275A56A224786E5004623E9 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		3275A56B224786E5004623E9 /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				3281482122466FB000FB4552 /* AvatarCVC.swift */,
 				3275A56622475985004623E9 /* AvatarRoundedImgView.swift */,
 				3285F3392254A18300EE35CE /* ChannelCell.swift */,
+				326EB05C2255C31F00F78C77 /* MessageCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				3285F33A2254A18300EE35CE /* ChannelCell.swift in Sources */,
 				3293E1982244F7CB00F8756C /* CreateAccountVC.swift in Sources */,
 				3281482222466FB000FB4552 /* AvatarCVC.swift in Sources */,
+				326EB05D2255C31F00F78C77 /* MessageCell.swift in Sources */,
 				3281482022466F9200FB4552 /* AvatarVC.swift in Sources */,
 				3285F3442254DC7200EE35CE /* Message.swift in Sources */,
 				3275A5722247B45E004623E9 /* Channel.swift in Sources */,

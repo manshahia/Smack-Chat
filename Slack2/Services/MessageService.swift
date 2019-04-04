@@ -57,6 +57,7 @@ class MessageService
 
     func getAllMessages(channelID : String, completion: @escaping CompletionHandler)
     {
+        print("URL : \(URL_GET_MESSAGES)\(channelID)")
         Alamofire.request("\(URL_GET_MESSAGES)\(channelID)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HEADER_AUTH).responseJSON { (response) in
             
             if response.result.error == nil
@@ -77,6 +78,9 @@ class MessageService
                             let timeStamp = item["timeStamp"].stringValue
                             
                             let message = Message(id: id, messageBody: messageBody, channelId: chanelID, userName: userName, userAvatar: userAvatar, userAvatarColor: userAvatarColor, timeStamp: timeStamp)
+                            
+                            
+                            
                             
                             self.messages.append(message)
                         }
